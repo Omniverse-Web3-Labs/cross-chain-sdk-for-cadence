@@ -1,0 +1,29 @@
+
+# initiallize collection
+flow transactions send ./transactions/initExampleCollection.cdc --signer testnet-account -n testnet
+
+# destroy collection
+flow transactions send ./transactions/destroyExampleCollection.cdc --signer testnet-account -n testnet
+
+# mint NFT
+flow transactions send ./transactions/freeMintExample.cdc "Universe NFT 8" --signer testnet-account -n testnet
+
+# check NFT 
+flow scripts execute ./scripts/checkNFT.cdc 0x86fc6f40cd9f9c66 -n testnet
+
+# query ids of the NFTs you own
+flow scripts execute ./scripts/queryNFTIDs.cdc 0x86fc6f40cd9f9c66 -n testnet
+
+# destroy nft
+flow transactions send ./transactions/destroyExampleNFT.cdc 0  --signer testnet-account -n testnet
+
+# send nft out
+flow transactions send ./transactions/sendNFT2Opensea.cdc "RINKEBY" "8Ec8b47771EA452f206B441A71e0a166F348C711" '9bee6fc1' "hello nika" "04e5d0f5478849C94F02850bFF91113d8F02864D" 7 --signer testnet-account -n testnet
+
+flow transactions send ./transactions/sendNFT2Opensea.cdc "PLATONEVM" "3800797289ad8F2d5760f5B27197cfc59C653358" '9bee6fc1' "hello nika" "04e5d0f5478849C94F02850bFF91113d8F02864D" 12 --signer testnet-account -n testnet
+
+# query the uuid of the NFT, which is used as the NFT id on other chains
+flow scripts execute ./scripts/queryUUID.cdc 0x86fc6f40cd9f9c66 12 -n testnet
+
+# claim nft
+flow transactions send ./transactions/claimNFT.cdc 12 'hello nika' --signer testnet-account -n testnet

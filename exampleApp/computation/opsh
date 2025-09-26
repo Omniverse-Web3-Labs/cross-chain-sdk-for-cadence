@@ -1,0 +1,21 @@
+
+# call out
+flow transactions send ./transactions/CallOut.cdc "PLATONEVMDEV" "[180,160,218,47,243,200,102,69,155,52,10,10,156,251,244,210,76,138,251,111]" "[71, 229, 10, 66]" '[1, 2, 3, 4, 5]' --signer emulator-Alice
+
+flow transactions send ./transactions/CallOut.cdc "RINKEBY" "[106,168,156,101,73,7,68,90,53,218,17,9,197,253,122,117,241,84,110,246]" "[71, 229, 10, 66]" '[1, 2, 3, 4, 5]' --signer testnet-operator -n testnet
+
+flow transactions send ./transactions/CallOut.cdc "SHIBUYA" "53e46958440e1c874f84ec3740ce1e96bc8af898cfa808a6cd138dce43718f4c" "[0, 0, 0, 1]" '[1, 2, 3, 4, 5]' --signer testnet-operator -n testnet
+
+
+# check out coming computed results
+flow scripts execute ./scripts/getComputeResults.cdc 0x01cf0e2f2f715450
+
+flow scripts execute ./scripts/getComputeResults.cdc 0xc133efc4b43676a0 -n testnet
+
+# check out coming tasks
+flow scripts execute ./scripts/getComputeTasks.cdc 0x01cf0e2f2f715450
+
+flow scripts execute ./scripts/getComputeTasks.cdc 0xc133efc4b43676a0 -n testnet
+
+# clear resources
+flow transactions send ./transactions/clearResources.cdc --signer testnet-account -n testnet

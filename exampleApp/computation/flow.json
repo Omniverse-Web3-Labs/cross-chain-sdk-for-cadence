@@ -1,0 +1,54 @@
+{
+	"emulators": {
+		"default": {
+		  "port": 3569,
+		  "serviceAccount": "emulator-Alice"
+		}
+	},
+	  "testnet": {
+		"default": {
+		  "port": 9000,
+		  "serviceAccount": "testnet-operator"
+		}
+	},
+	"networks": {
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
+	},
+	"contracts": {
+		"Cocomputation": "./contracts/Cocomputation.cdc",
+		"SDKUtility": "./contracts/SDKUtility.cdc"
+	},
+	"accounts": {
+		"emulator-Alice": {
+			"address": "0x01cf0e2f2f715450",
+			"publicKey": "81262aa27f1630ccf1293300e8e1d9a6ba542dffa796b860d53873867175e9d31bd7b7581d2f200f9c3dfdbc10ae912ff036946981e3d8996a14f186d20e3e2f",
+			"key": "c9193930b34dd498378e36c35118a627d9eb500f6fd69b16d8e59db7cc8f5bb3"
+		},
+		"testnet-account": {
+			"address": "0x12cf9cb8bd3eb18e",
+			"publicKey": "fc320070dc529333e6c87100e39662dcad49f5f9516199e05efb991612d718cd5d76c16d1bc4f922bec48bc2993a5be0cb2dfa96da7cc32572b42a8799db313f",
+			"key": "e23c52870758a5bb6aa617eecdf7ca0fd1ad41963c1d7f6d26daf14ce47f3a18"
+		},
+		"testnet-operator": {
+			"address": "0xc133efc4b43676a0",
+			"publicKey": "22ce274165e8b38358f01566ea20ae396cd95f23c50dd6298dcfebca5113a05bc36205c008fa3ada8076758a8dd7b82f03753f5605752bec992dc34444cc3568",
+			"key": "f9e2048f473009b0433b90fa26200c3592277fa3976334659c1436522b157d59"
+		}
+	},
+	"deployments": {
+		"emulator": {
+			"emulator-Alice": [
+				"Cocomputation",
+				"SDKUtility"
+			]
+		},
+		"testnet": {
+			"testnet-operator": [
+				"Cocomputation",
+				"SDKUtility"
+			]
+		}
+	  }
+}

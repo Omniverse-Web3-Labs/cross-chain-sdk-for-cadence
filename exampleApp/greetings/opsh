@@ -1,0 +1,19 @@
+
+# init submitter resource
+flow transactions send ./transactions/initSubmitter.cdc --signer emulator-Alice
+
+flow transactions send ./transactions/initSubmitter.cdc -n testnet --signer testnet-account
+
+# destroy submitter resource
+flow transactions send ./transactions/destroySubmitter.cdc --signer emulator-Alice
+
+flow transactions send ./transactions/destroySubmitter.cdc -n testnet --signer testnet-account
+
+# operations
+flow scripts execute ./scripts/getRecvedGreetings.cdc
+
+flow transactions send ./transactions/sendMessageOut.cdc "PLATONEVMDEV" "[234,210,82,239,183,33,89,176,245,127,253,81,28,232,133,35,49,66,123,54]" "[45,67,104,34]" 0x01cf0e2f2f715450
+
+flow transactions send ./transactions/sendMessageOut.cdc "RINKEBY" "[113,55,88,82,97,110,247,25,107,7,186,63,22,128,91,81,46,33,129,62]" "[45,67,104,34]" 0x86fc6f40cd9f9c66 -n testnet --signer testnet-account
+
+flow transactions send ./transactions/sendMessageOut.cdc "SHIBUYA" "8aee7ff290d07e8f75901e360b8dd84dd169d0a12df9d1bf0cdbbd56b4a00975" "[12, 114, 77, 194]" 0x86fc6f40cd9f9c66 -n testnet --signer testnet-account

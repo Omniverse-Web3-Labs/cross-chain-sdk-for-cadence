@@ -1,0 +1,21 @@
+
+# environment
+flow transactions send ./transaction/test/transferFlow.cdc 100.0 0x01cf0e2f2f715450 -n testnet --signer testnet-account
+
+# init 
+flow transactions send ./transactions/initSender.cdc --signer emulator-Alice
+flow transactions send ./transactions/initRecver.cdc --signer emulator-Alice
+
+flow transactions send ./transactions/initSender.cdc -n testnet --signer testnet-account
+flow transactions send ./transactions/initRecver.cdc -n testnet --signer testnet-account
+
+# check registered
+flow scripts execute ./scripts/checkRegistered.cdc -n testnet
+
+# destroy sender and receiver
+flow transactions send ./transactions/destroyRecver.cdc --signer emulator-Alice
+flow transactions send ./transactions/destroySender.cdc --signer emulator-Alice
+
+flow transactions send ./transactions/destroyRecver.cdc -n testnet --signer testnet-account
+flow transactions send ./transactions/destroySender.cdc -n testnet --signer testnet-account
+

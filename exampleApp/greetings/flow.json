@@ -1,0 +1,46 @@
+{
+	"emulators": {
+		"default": {
+		  "port": 3569,
+		  "serviceAccount": "emulator-Alice"
+		}
+	},
+	  "testnet": {
+		"default": {
+		  "port": 9000,
+		  "serviceAccount": "testnet-account"
+		}
+	},
+	"networks": {
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
+	},
+	"contracts": {
+		"Greetings":"./contracts/Greetings.cdc"
+	},
+	"accounts": {
+		"emulator-Alice": {
+			"address": "0x01cf0e2f2f715450",
+			"publicKey": "81262aa27f1630ccf1293300e8e1d9a6ba542dffa796b860d53873867175e9d31bd7b7581d2f200f9c3dfdbc10ae912ff036946981e3d8996a14f186d20e3e2f",
+			"key": "c9193930b34dd498378e36c35118a627d9eb500f6fd69b16d8e59db7cc8f5bb3"
+		},
+		"testnet-account": {
+			"address": "0x86fc6f40cd9f9c66",
+			"publicKey": "d5175b997fe25b2661d94f69c1d745fe6244cc6ad31b5899ef5b0ad6db76244af6a7e7fbf5687c6dab1ff3297b38e04ea93c71d1175a5b9152fa882e1741e33f",
+			"key": "9e4a3a28fbbc4f8745ca118ebe39074f569e11d9ee2420d357c11c78b0cc19c3"
+		}
+	},
+	"deployments": {
+		"emulator": {
+			"emulator-Alice": [
+				"Greetings"
+			]
+		},
+		"testnet": {
+			"testnet-account": [
+				"Greetings"
+			]
+		}
+	}
+}
